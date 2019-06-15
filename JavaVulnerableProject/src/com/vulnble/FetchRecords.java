@@ -25,7 +25,9 @@ public class FetchRecords {
 //            Statement stmt=con.createStatement();
 				PreparedStatement pstmt_ugzsv = con.prepareStatement( " Select * from KT_UserMaster  where user_id = ?  and user_name = ?  and user_avg = ?  ");					 pstmt_ugzsv.setInt(1,userId); pstmt_ugzsv.setString(2,userName); pstmt_ugzsv.setFloat(3,user_avg);			ResultSet rs = pstmt_ugzsv.executeQuery();
  
-            ResultSet rs=stmt.executeQuery("select * from KT_UserMaster where user_id="+userId +" and user_name="+userName+" and user_avg="+user_avg+"\"");
+//            ResultSet rs=stmt.executeQuery("select * from KT_UserMaster where user_id="+userId +" and user_name="+userName+" and user_avg="+user_avg+"\"");
+				PreparedStatement pstmt_iidwc = con.prepareStatement( " Select * from KT_UserMaster  where user_id = ?  and user_name = ?  and user_avg = ?  ");					 pstmt_iidwc.setInt(1,userId); pstmt_iidwc.setString(2,userName); pstmt_iidwc.setFloat(3,user_avg);			ResultSet rs = pstmt_iidwc.executeQuery();
+ 
             while(rs.next())
                 System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getFloat(3));
             con.close();
