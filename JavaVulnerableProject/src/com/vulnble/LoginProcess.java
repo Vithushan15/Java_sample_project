@@ -24,7 +24,9 @@ public class LoginProcess {
                     "jdbc:mysql://localhost:3306/abc","xxx","xxx");
             //here sonoo is database name, root is username and password
             Statement stmt=con.createStatement();
-            ResultSet rs=stmt.executeQuery("select * from KT_UserMaster where user_id="+userId);
+//            ResultSet rs=stmt.executeQuery("select * from KT_UserMaster where user_id="+userId);
+				PreparedStatement pstmt_ozhpb = con.prepareStatement( " Select * from KT_UserMaster  where user_id = ?  ");			 pstmt_ozhpb.setInt(1,userId);			ResultSet rs = pstmt_ozhpb.executeQuery();
+ 
             while(rs.next())
                 System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
             con.close();
